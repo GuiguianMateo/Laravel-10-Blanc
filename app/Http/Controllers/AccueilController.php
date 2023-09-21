@@ -12,7 +12,7 @@ class AccueilController extends Controller
      */
     public function index()
     {
-        return view('layouts.welcome');
+        return view('welcome');
     }
 
     /**

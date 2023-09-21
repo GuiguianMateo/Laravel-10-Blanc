@@ -17,3 +17,6 @@ Avec ceci vous allez pouvoir vous connecter à la base de donnée, vous allez re
 Vous aller donc pouvoir ouvrir un cmd, vous rendre dans le fichier 'Homestead', et lancer la commande 'vagrant ssh'.
 Ensuite diriger vous vers votre projet, et lancer les commandes 'artisan db:seed --class=MenuSeeder', puis 'artisan db:seed --class=SousMenuSeeder',
 et enfin 'artisan db:seed --class=PageSeeder' pour obtenir de multiple donnée dans votre base.
+
+Pour ensuite voir tout ceci, rendez vous dans votre naviguateur et taper dans l'url : 'cms.test'.
+Alors il ne vous reste plus qu'a vous connecter

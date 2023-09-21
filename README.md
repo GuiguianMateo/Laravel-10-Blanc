@@ -9,8 +9,9 @@
 
 ## README
 
-Une fois que vous avez installé tout les fichers ci-dessus, je vous invite à prendre le fichier '.env.exemple', copier son contenu
-et le coller dans le ficher '.env'.
+Une fois que vous avez installé tout les fichers ci-dessus, je vous invite à aller dans le fichier '.env', et modifier certaine ligne : 
+l.14 : DB_DATABASE=cms
+l.16 : DB_PASSWORD=secret
 
 Avec ceci vous allez pouvoir vous connecter à la base de donnée, vous allez remarquer que celle-ci est vide en donnée.
 

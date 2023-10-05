@@ -12,7 +12,9 @@ class SousMenuController extends Controller
      */
     public function index()
     {
-        //
+        $sousmenus = SousMenu::all();
+        return view('sousmenu.index', compact('sousmenus'));
+
     }
 
     /**

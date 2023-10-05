@@ -3,15 +3,15 @@
 @section('content')
 
     <ul>
-        @forelse ($menus as $menu)
+        @forelse ($pages as $page)
         <li>
             <div>
-            {{ $menu->titre }} [{{ $menu->afficher }}]
+            {{ $page->titre }} [{{ $page->afficher }}]
             </div>
         </li>
         @empty
         <li>
-            Aucun menu connu
+            Aucune Page connu
         </li>
         @endforelse
     </ul>

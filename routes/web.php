@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\SousMenuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +23,8 @@ Route::get('/', function () {
 //Route::get('/', [AccueilController::class, 'index'])->name('accueil');
 
 Route::resource('menu', MenuController::class);
+Route::resource('sousmenu', SousMenuController::class);
+Route::resource('page', PageController::class);
+
+
+

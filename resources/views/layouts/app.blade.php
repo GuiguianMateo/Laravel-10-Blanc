@@ -18,15 +18,9 @@
     <nav>
       <a href="{{ route('menu.index') }}">Listes des Menus</a>
       <a href="{{ route('sousmenu.index') }}">Listes des Sous-Menus</a>
-      <form method="POST" action="{{ route('logout') }}">
-        @csrf
+      <a href="{{ route('page.index') }}">Listes des Pages</a>
 
-        <x-dropdown-link :href="route('logout')"
-                onclick="event.preventDefault();
-                            this.closest('form').submit();">
-            {{ __('Log Out') }}
-        </x-dropdown-link>
-      </form>
+
     </nav>
     @yield('content')
   </div>

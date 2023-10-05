@@ -20,7 +20,8 @@ class PageFactory extends Factory
         return [
             'titre' => fake()->title,
             'message' => fake()->text,
-            'sousmenu_id' => SousMenu::factory()->create()
+            'sousmenu_id' => SousMenu::factory()->create(),
+            'publier' => fake()->boolean()
         ];
     }
 }

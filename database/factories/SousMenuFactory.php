@@ -20,7 +20,8 @@ class SousMenuFactory extends Factory
         return [
             'titre' => fake()->randomAscii,
             'afficher' => fake()->boolean(),
-            'menu_id' => Menu::factory()->create()
+            'menu_id' => Menu::factory()->create(),
+            'link' =>fake()->url()
         ];
     }
 }

@@ -22,7 +22,8 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        $menus = Menu::all();
+        return view('menu.create', compact('menus'));
     }
 
     /**
@@ -30,7 +31,15 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $menu = new Menu;
+
+        $menu->titre = $data['titre'];
+        $menu->lien = $data['lien'];
+        $menu->afficher = $data['afficher'];
+        $menu->save();
+        return redirect()->route('menu.index');
     }
 
     /**
@@ -38,6 +47,7 @@ class MenuController extends Controller
      */
     public function show(Menu $menu)
     {
+
         //
     }
 

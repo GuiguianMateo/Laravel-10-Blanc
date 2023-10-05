@@ -6,7 +6,7 @@
         @forelse ($sousmenus as $sousmenu)
         <li>
             <div>
-            {{ $sousmenu->titre }} [{{ $sousmenu->afficher }}]
+            {{ $sousmenu->titre }} [{{ $sousmenu->afficher ? 'Afficher' : 'Pas Afficher' }}]
             </div>
         </li>
         @empty

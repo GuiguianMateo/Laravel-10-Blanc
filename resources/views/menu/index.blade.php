@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <ul>
+<ul>
     @forelse ($menus as $menu)
       <li>
         <div>
@@ -11,8 +11,8 @@
       </li>
     @empty
       <li>
-        Aucune matière connue
+        Aucun menu connu
       </li>
     @endforelse
-  </ul>
+</ul>
 @endsection

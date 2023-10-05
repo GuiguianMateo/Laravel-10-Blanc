@@ -19,6 +19,7 @@ class MenuFactory extends Factory
         return [
             'titre' => fake()->randomAscii,
             'afficher' => fake()->boolean(),
+
         ];
     }
 }

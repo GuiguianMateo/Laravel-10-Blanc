@@ -14,7 +14,6 @@ class MenuController extends Controller
     {
         $menus = Menu::all();
         return view('menu.index', compact('menus'));
-
     }
 
     /**

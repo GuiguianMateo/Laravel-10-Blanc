@@ -16,6 +16,7 @@
 <body>
   <div class="container">
     <nav>
+      <a href="{{ '/' }}">Accueil</a>
       <a href="{{ route('menu.index') }}">Listes des Menus</a>
       <a href="{{ route('sousmenu.index') }}">Listes des Sous-Menus</a>
       <a href="{{ route('page.index') }}">Listes des Pages</a>

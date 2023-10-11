@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Models\SousMenu;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -21,7 +22,9 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+        $pages = Page::all();
+        $sous_menus = SousMenu::all();
+        return view('page.create', compact('pages','sous_menus'));
     }
 
     /**
@@ -29,7 +32,19 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $page = new Page;
+
+        $page->titre = $data['titre'];
+        $page->message = $data['message'];
+        $page->publier = $data['publier'];
+        $page->sousmenu_id = $data['sousmenu_id'];
+        $page->save();
+
+
+        $pages = Page::all();
+        return redirect()->route('page.index', compact('pages'));
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
 use App\Models\SousMenu;
 use Illuminate\Http\Request;
 
@@ -12,8 +13,8 @@ class SousMenuController extends Controller
      */
     public function index()
     {
-        $sousmenus = SousMenu::all();
-        return view('sousmenu.index', compact('sousmenus'));
+        $sous_menus = SousMenu::all();
+        return view('sousmenu.index', compact('sous_menus'));
     }
 
     /**
@@ -21,7 +22,9 @@ class SousMenuController extends Controller
      */
     public function create()
     {
-        //
+        $menus = Menu::all();
+        $sous_menus = SousMenu::all();
+        return view('sousmenu.create', compact('sous_menus', 'menus'));
     }
 
     /**
@@ -29,7 +32,18 @@ class SousMenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $sousmenu = new SousMenu;
+
+        $sousmenu->titre = $data['titre'];
+        $sousmenu->lien = $data['lien'];
+        $sousmenu->afficher = $data['afficher'];
+        $sousmenu->menu_id = $data['menu_id'];
+        $sousmenu->save();
+
+        $sous_menus = SousMenu::all();
+        return redirect()->route('sousmenu.index', compact('sous_menus'));
     }
 
     /**

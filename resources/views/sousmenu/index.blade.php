@@ -2,8 +2,10 @@
 
 @section('content')
 
+<a href="{{ route('sousmenu.create') }}">Ajouter</a>
+
     <ul>
-        @forelse ($sousmenus as $sousmenu)
+        @forelse ($sous_menus as $sousmenu)
         <li>
             <div>
             {{ $sousmenu->titre }} [{{ $sousmenu->afficher ? 'Afficher' : 'Pas Afficher' }}]

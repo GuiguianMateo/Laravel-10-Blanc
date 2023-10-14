@@ -46,8 +46,7 @@ class MenuController extends Controller
      */
     public function show(Menu $menu)
     {
-
-        //
+        return view('menu.show', compact('menu'));
     }
 
     /**
@@ -55,7 +54,7 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        //
+        return view('menu.edit', compact('menu'));
     }
 
     /**
@@ -63,7 +62,13 @@ class MenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
-        //
+        $data = $request->all();
+
+        $menu->titre = $data['titre'];
+        $menu->lien = $data['lien'];
+        $menu->afficher = $data['afficher'];
+        $menu->save();
+        return redirect()->route('menu.index');
     }
 
     /**

@@ -49,32 +49,44 @@ class SousMenuController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SousMenu $sousMenu)
+    public function show(SousMenu $sousmenu)
     {
-        //
+        return view('sousmenu.show', compact('sousmenu'));
+
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SousMenu $sousMenu)
+    public function edit(SousMenu $sousmenu)
     {
-        //
+        $menus = Menu::all();
+        return view('sousmenu.edit', compact('sousmenu', 'menus'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SousMenu $sousMenu)
+    public function update(Request $request, SousMenu $sousmenu)
     {
-        //
+        $data = $request->all();
+
+        $sousmenu->titre = $data['titre'];
+        $sousmenu->lien = $data['lien'];
+        $sousmenu->afficher = $data['afficher'];
+        $sousmenu->menu_id = $data['menu_id'];
+        $sousmenu->save();
+
+        return redirect()->route('sousmenu.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SousMenu $sousMenu)
+    public function destroy(SousMenu $sousmenu)
     {
-        //
+        $sousmenu->delete();
+        return redirect()->route('sousmenu.index');
     }
 }

@@ -52,7 +52,7 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        //
+        return view('page.show', compact('page'));
     }
 
     /**
@@ -60,15 +60,25 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        //
-    }
+        $sousmenus = SousMenu::all();
+        return view('page.edit', compact('page', 'sousmenus'));    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Page $page)
     {
-        //
+        {
+            $data = $request->all();
+
+            $page->titre = $data['titre'];
+            $page->message = $data['message'];
+            $page->publier = $data['publier'];
+            $page->sousmenu_id = $data['sousmenu_id'];
+
+            $page->save();
+            return redirect()->route('page.index');
+        }
     }
 
     /**
@@ -76,6 +86,7 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
-        //
+        $page->delete();
+        return redirect()->route('page.index');
     }
 }

@@ -9,6 +9,7 @@
         <li>
             <div>
             {{ $sousmenu->titre }} [{{ $sousmenu->afficher ? 'Afficher' : 'Pas Afficher' }}]
+            <a href="{{ route('sousmenu.show', $sousmenu->id) }}">Detail</a>
             </div>
         </li>
         @empty

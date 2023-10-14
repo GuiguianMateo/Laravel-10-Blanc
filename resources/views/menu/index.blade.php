@@ -9,9 +9,7 @@
         <li>
             <div>
             {{ $menu->titre }} [{{ $menu->afficher ? 'Afficher' : 'Pas Afficher' }}]
-            <a href="{{ route('menu.show', $menu->id) }}">Detail</a> /
-            <a href="{{ route('menu.edit', $menu->id) }}">Modifier</a>
-
+            <a href="{{ route('menu.show', $menu->id) }}">Detail</a>
             </div>
         </li>
         @empty

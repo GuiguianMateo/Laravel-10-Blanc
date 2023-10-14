@@ -9,6 +9,7 @@
         <li>
             <div>
             {{ $page->titre }} [{{ $page->publier ? 'Publier' : 'Non Publier' }}]
+            <a href="{{ route('page.show', $page->id) }}">Detail</a>
             </div>
         </li>
         @empty

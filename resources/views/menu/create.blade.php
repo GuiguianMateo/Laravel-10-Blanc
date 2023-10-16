@@ -18,14 +18,14 @@
             <label class="form-check-label" for="visible">Voulez-vous afficher le menu?</label>
             <div class="form-check">
                 <input type="radio" class="form-check-input" name="afficher" id="oui" value="1">
-                <label class="form-check-label" for="oui">Oui</label>
+                <label class="form-check-label" for="oui">Yes</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" name="afficher" id="non" value="0">
-                <label class="form-check-label" for="non">Non</label>
+                <label class="form-check-label" for="non">No</label>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Créer</button>
+        <button type="submit" class="btn btn-primary">Create</button>
     </form>
 </div>
 @endsection

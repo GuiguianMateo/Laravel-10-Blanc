@@ -18,8 +18,8 @@ class PageFactory extends Factory
     public function definition(): array
     {
         return [
-            'titre' => fake()->title,
-            'message' => fake()->text,
+            'titre' => fake()->word(),
+            'message' => fake()->words($nb = 25),
             'sousmenu_id' => SousMenu::factory()->create(),
             'publier' => fake()->boolean()
         ];

@@ -18,7 +18,7 @@ class SousMenuFactory extends Factory
     public function definition(): array
     {
         return [
-            'titre' => fake()->randomAscii,
+            'titre' => fake()->word(),
             'afficher' => fake()->boolean(),
             'menu_id' => Menu::factory()->create(),
             'link' =>fake()->url()

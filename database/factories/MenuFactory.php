@@ -17,7 +17,7 @@ class MenuFactory extends Factory
     public function definition(): array
     {
         return [
-            'titre' => fake()->randomAscii,
+            'titre' => fake()->word(),
             'afficher' => fake()->boolean(),
             'link' =>fake()->url()
         ];

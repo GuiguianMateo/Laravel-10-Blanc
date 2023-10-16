@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use App\Models\Page;
 use App\Models\SousMenu;
 use Illuminate\Http\Request;
 
@@ -86,7 +87,13 @@ class SousMenuController extends Controller
      */
     public function destroy(SousMenu $sousmenu)
     {
+        $pages = Page::where('sousmenu_id', $sousmenu->id)->get();
+        foreach ($pages as $page) {
+            $page->delete();
+        }
         $sousmenu->delete();
+
         return redirect()->route('sousmenu.index');
+
     }
 }

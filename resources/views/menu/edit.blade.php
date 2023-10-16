@@ -5,8 +5,8 @@
     <form action="{{ route('menu.update', $menu->id ) }}" method="post"><br>
         @csrf
         @method('put')
-            <input type='text' value="{{ $menu->titre }}" placeholder='Titre du menu' name='titre'><br>
-            <input type='text' value="{{ $menu->lien }}" placeholder='lien du menu ' name='lien'><br>
+            <input type='text' value="{{ $menu->titre }}" name='titre'><br>
+            <input type='text' value="{{ $menu->lien }}" name='lien'><br>
         <div>
                 <label for="visible">Voulez-vous afficher le menu?</label>
                 <input type="radio" name="afficher" id="oui" value="1"><label for="oui">Oui</label>

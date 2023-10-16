@@ -21,6 +21,12 @@
       <a href="{{ route('sousmenu.index') }}">Listes des Sous-Menus</a>
       <a href="{{ route('page.index') }}">Listes des Pages</a>
 
+        @auth
+            <a href="{{ url('/logout') }}">Déconnexion</a>
+        @else
+            <a href="{{ url('/register') }}">Inscription</a>
+            <a href="{{ url('/login') }}">Connexion</a>
+        @endauth
 
     </nav>
     @yield('content')

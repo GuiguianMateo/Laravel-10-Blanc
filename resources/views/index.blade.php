@@ -4,14 +4,13 @@
 
     <div>
         @forelse ($menus as $menu)
-            <div>
-                {{ $menu->titre }}
-
-                {{ $ }} Page(s) :
-
-            @empty
-            </div>
-        @endforelse
+          <div>
+              {{ $menu->titre }} page(s)
+            </a>
+          </div>
+      @empty
+          Aucun menu connu
+      @endforelse
     </div>
 
 @endsection

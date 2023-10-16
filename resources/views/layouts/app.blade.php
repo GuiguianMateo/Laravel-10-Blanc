@@ -38,6 +38,14 @@
                     <a href="{{ route('sousmenu.index') }}">Listes des Sous-Menus</a> |
                     <a href="{{ route('page.index') }}">Listes des Pages</a>
 
+                    <div>
+                        {{ __('Changez de langue : ') }}
+                        @if(app()->getLocale() == 'fr')
+                            <a href="{{ route('language.change', 'en') }}">{{ __('English') }}</a>
+                        @else
+                            <a href="{{ route('language.change', 'fr') }}">{{ __('French') }}</a>
+                        @endif
+                    </div>
                   </nav>
                   @yield('content')
                 </div>

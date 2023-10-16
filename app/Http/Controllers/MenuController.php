@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Repositories\MenuRepository;
 use App\Models\Menu;
 use App\Models\Page;
 use App\Models\SousMenu;
@@ -9,6 +10,14 @@ use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
+
+    protected $menuRepository;
+
+    public function __construct(MenuRepository $menuRepository)
+    {
+        $this->menuRepository = $menuRepository;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -32,7 +41,12 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+
+        $this->menuRepository->store($request);
+        return redirect()->route('menu.index');
+
+
+       /*  $data = $request->all();
 
         $menu = new Menu;
 
@@ -40,7 +54,7 @@ class MenuController extends Controller
         $menu->lien = $data['lien'];
         $menu->afficher = $data['afficher'];
         $menu->save();
-        return redirect()->route('menu.index');
+        return redirect()->route('menu.index'); */
     }
 
     /**
@@ -62,15 +76,22 @@ class MenuController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Menu $menu)
+
+
+    //public function update(Request $request, Menu $menu)
+    public function update(Request $request, $id)
     {
-        $data = $request->all();
+
+        $this->menuRepository->update($request, $id);
+        return redirect()->route('menu.index');
+
+/*         $data = $request->all();
 
         $menu->titre = $data['titre'];
         $menu->lien = $data['lien'];
         $menu->afficher = $data['afficher'];
         $menu->save();
-        return redirect()->route('menu.index');
+        return redirect()->route('menu.index'); */
     }
 
     /**

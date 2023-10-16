@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Repositories\SousMenuRepository;
 use App\Models\Menu;
 use App\Models\Page;
 use App\Models\SousMenu;
@@ -9,6 +10,15 @@ use Illuminate\Http\Request;
 
 class SousMenuController extends Controller
 {
+
+    protected $sousMenuRepository;
+
+    public function __construct(SousMenuRepository $sousMenuRepository)
+    {
+        $this->sousMenuRepository = $sousMenuRepository;
+    }
+
+
     /**
      * Display a listing of the resource.
      */
@@ -33,7 +43,11 @@ class SousMenuController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+
+        $this->sousMenuRepository->store($request);
+        return redirect()->route('sousmenu.index');
+
+       /*  $data = $request->all();
 
         $sousmenu = new SousMenu;
 
@@ -44,7 +58,7 @@ class SousMenuController extends Controller
         $sousmenu->save();
 
         $sous_menus = SousMenu::all();
-        return redirect()->route('sousmenu.index', compact('sous_menus'));
+        return redirect()->route('sousmenu.index', compact('sous_menus')); */
     }
 
     /**
@@ -69,9 +83,14 @@ class SousMenuController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SousMenu $sousmenu)
+    public function update(Request $request, $id)
     {
-        $data = $request->all();
+
+        $this->sousMenuRepository->update($request, $id);
+        return redirect()->route('sousmenu.index');
+
+
+       /*  $data = $request->all();
 
         $sousmenu->titre = $data['titre'];
         $sousmenu->lien = $data['lien'];
@@ -79,7 +98,7 @@ class SousMenuController extends Controller
         $sousmenu->menu_id = $data['menu_id'];
         $sousmenu->save();
 
-        return redirect()->route('sousmenu.index');
+        return redirect()->route('sousmenu.index'); */
     }
 
     /**

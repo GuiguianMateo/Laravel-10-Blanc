@@ -1,22 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-
-<a href="{{ route('menu.create') }}">Ajouter</a>
-
-    <ul>
+<div class="container"><br>
+    <h1>Menu List</h1>
+    <a href="{{ route('menu.create') }}" class="btn btn-primary mb-3">Ajouter</a>
+    <ul class="list-group">
         @forelse ($menus as $menu)
-        <li>
-            <div>
-            {{ $menu->titre }} [{{ $menu->afficher ? 'Afficher' : 'Pas Afficher' }}]
-            <a href="{{ route('menu.show', $menu->id) }}">Detail</a>
+        <li class="list-group-item">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    {{ $menu->titre }} [{{ $menu->afficher ? 'Afficher' : 'Non Afficher' }}]
+                </div>
+                <div>
+                    <a href="{{ route('menu.show', $menu->id) }}" class="btn btn-info">Détail</a>
+                </div>
             </div>
         </li>
         @empty
-        <li>
+        <li class="list-group-item">
             Aucun menu connu
         </li>
         @endforelse
     </ul>
-
+</div>
 @endsection

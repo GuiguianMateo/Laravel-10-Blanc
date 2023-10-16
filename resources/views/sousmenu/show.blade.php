@@ -1,19 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-
-
-    <div>
-        Titre : {{ $sousmenu->titre }}<br>
-        Lien : {{ $sousmenu->lien }}<br>
-        Il est : {{ $sousmenu->afficher ? 'Afficher' : 'Pas Afficher' }}<br>
-        Rélier au menu : {{ $sousmenu->menu->titre}}<br>
-        <a href="{{ route('sousmenu.edit', $sousmenu->id) }}">Modifier</a>
-        <form action="{{ route('sousmenu.destroy', $sousmenu->id) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit">Supprimer</button>
-        </form>
+<div class="container">
+    <h1>Sous-Menu Details</h1>
+    <div class="mb-3">
+        <strong>Titre :</strong> {{ $sousmenu->titre }}
     </div>
-
+    <div class="mb-3">
+        <strong>Lien :</strong> {{ $sousmenu->lien }}
+    </div>
+    <div class="mb-3">
+        <strong>Statut :</strong> {{ $sousmenu->afficher ? 'Afficher' : 'Non Afficher' }}
+    </div>
+    <div class="mb-3">
+        <strong>Lié au menu :</strong> {{ $sousmenu->menu->titre }}
+    </div>
+    <a href="{{ route('sousmenu.edit', $sousmenu->id) }}" class="btn btn-primary">Modifier</a>
+    <form action="{{ route('sousmenu.destroy', $sousmenu->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">Supprimer</button>
+    </form>
+</div>
 @endsection

@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Repositories\PageRepository;
 use App\Models\Page;
 use App\Models\SousMenu;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    protected $pageRepository;
+
+    public function __construct(PageRepository $pageRepository)
+    {
+        $this->pageRepository = $pageRepository;
+    }
+
+
     /**
      * Display a listing of the resource.
      */
@@ -32,7 +41,11 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+
+        $this->pageRepository->store($request);
+        return redirect()->route('page.index');
+
+/*         $data = $request->all();
 
         $page = new Page;
 
@@ -44,7 +57,7 @@ class PageController extends Controller
 
 
         $pages = Page::all();
-        return redirect()->route('page.index', compact('pages'));
+        return redirect()->route('page.index', compact('pages')); */
     }
 
     /**
@@ -66,19 +79,23 @@ class PageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Page $page)
+    public function update(Request $request, $id)
     {
-        {
-            $data = $request->all();
 
-            $page->titre = $data['titre'];
-            $page->message = $data['message'];
-            $page->publier = $data['publier'];
-            $page->sousmenu_id = $data['sousmenu_id'];
+        $this->pageRepository->store($request, $id);
+        return redirect()->route('page.index');
 
-            $page->save();
-            return redirect()->route('page.index');
-        }
+       /*
+        $data = $request->all();
+
+        $page->titre = $data['titre'];
+        $page->message = $data['message'];
+        $page->publier = $data['publier'];
+        $page->sousmenu_id = $data['sousmenu_id'];
+
+        $page->save();
+        return redirect()->route('page.index'); */
+
     }
 
     /**

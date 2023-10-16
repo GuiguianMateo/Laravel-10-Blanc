@@ -1,27 +1,40 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <form action="{{ route('page.store') }}" method="post"><br>
+<div class="container">
+    <h1>Créer une Nouvelle Page</h1>
+    <form action="{{ route('page.store') }}" method="post">
         @csrf
-        @method("post")
-        <input type='text' id='titre' placeholder='Titre de la page' name='titre'><br>
-        <input type='text' id='message' placeholder='message de la page ' name='message'><br>
-        <div>
-                <label for="visible">Voulez-vous publier le menu?</label>
-                <input type="radio" name="publier" id="oui" value="1"><label for="oui">Oui</label>
-                <input type="radio" name="publier" id="non" value="0"><label for="non">Non</label><br/>
+        @method('post')
+        <div class="mb-3">
+            <label for="titre">Titre de la page</label>
+            <input type="text" class="form-control" name="titre" id="titre" placeholder="Titre de la page">
         </div>
-
-        <select name="sousmenu_id" id="sousmenu_id">
-            <option value="sousmenu">Veuillez choisir un Sous-Menu</option>
-
-            @foreach ($sous_menus as $sousmenu)
-                <option value="{{ $sousmenu->id }}">{{ $sousmenu->titre }}</option>
-            @endforeach
-        </select><br>
-
-        <input type='submit' value='Créer'>
+        <div class="mb-3">
+            <label for="message">Message de la page</label>
+            <input type="text" class="form-control" name="message" id="message" placeholder="Message de la page">
+        </div>
+        <div class="mb-3">
+            <label for="publier">Voulez-vous publier la page?</label>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" name="publier" id="oui" value="1">
+                <label class="form-check-label" for="oui">Oui</label>
+            </div>
+            <div class="form-check">
+                <input type radio class="form-check-input" name="publier" id="non" value="0">
+                <label class="form-check-label" for="non">Non</label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="sousmenu_id">Choisir un Sous-Menu</label>
+            <select class="form-select" name="sousmenu_id" id="sousmenu_id">
+                <option value="sousmenu">Veuillez choisir un Sous-Menu</option>
+                @foreach ($sous_menus as $sousmenu)
+                    <option value="{{ $sousmenu->id }}">{{ $sousmenu->titre }}</option>
+                @endforeach
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Créer</button>
     </form>
-
+</div>
 @endsection

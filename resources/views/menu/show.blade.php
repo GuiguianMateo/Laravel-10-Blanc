@@ -4,7 +4,7 @@
 <div class="container">
     <h1>Menu Details</h1>
     <div class="mb-3">
-        <strong>Titre :</strong> {{ $menu->titre }}
+        <strong>Title :</strong> {{ $menu->titre }}
     </div>
     <div class="mb-3">
         <strong>Lien :</strong> {{ $menu->lien }}

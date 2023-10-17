@@ -3,14 +3,7 @@
 @section('content')
 
     <div>
-        @forelse ($menus as $menu)
-          <div>
-              {{ $menu->titre }} page(s)
-            </a>
-          </div>
-      @empty
-          Aucun menu connu
-      @endforelse
+        <h1>WELCOME</h1>
     </div>
 
 @endsection

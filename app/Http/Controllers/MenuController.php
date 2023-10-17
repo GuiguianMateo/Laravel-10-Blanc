@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Repositories\MenuRepository;
+use App\Http\Requests\MenuRequest;
 use App\Models\Menu;
 use App\Models\Page;
 use App\Models\SousMenu;
@@ -39,7 +40,7 @@ class MenuController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MenuRequest $request)
     {
 
         $this->menuRepository->store($request);
@@ -79,7 +80,7 @@ class MenuController extends Controller
 
 
     //public function update(Request $request, Menu $menu)
-    public function update(Request $request, $id)
+    public function update(MenuRequest $request, $id)
     {
 
         $this->menuRepository->update($request, $id);

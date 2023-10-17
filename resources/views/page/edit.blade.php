@@ -2,17 +2,22 @@
 
 @section('content')
 <div class="container">
-    <h1>Modifier Page</h1>
     <form action="{{ route('page.update', $page->id) }}" method="post">
         @csrf
         @method('put')
         <div class="mb-3">
             <label for="titre">Titre de la page</label>
             <input type="text" class="form-control" name="titre" value="{{ $page->titre }}">
+            @error('titre')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="message">Message de la page</label>
             <input type="text" class="form-control" name="message" value="{{ $page->message }}">
+            @error('message')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="publier">Voulez-vous publier la page?</label>
@@ -26,6 +31,9 @@
                     {{ !$page->publier ? 'checked' : '' }}>
                 <label class="form-check-label" for="non">Non</label>
             </div>
+            @error('publier')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="sousmenu_id">Choisir un Sous-Menu</label>
@@ -37,6 +45,9 @@
                     </option>
                 @endforeach
             </select>
+            @error('sousmenu_id')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
         </div>
         <button type="submit" class="btn btn-primary">Modifier</button>
     </form>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Repositories\PageRepository;
+use App\Http\Requests\PageRequest;
 use App\Models\Page;
 use App\Models\SousMenu;
 use Illuminate\Http\Request;
@@ -39,7 +40,7 @@ class PageController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PageRequest $request)
     {
 
         $this->pageRepository->store($request);
@@ -79,7 +80,7 @@ class PageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(PageRequest $request, $id)
     {
 
         $this->pageRepository->store($request, $id);

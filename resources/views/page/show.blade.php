@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-    <h1>Page Details</h1>
     <div class="mb-3">
         <strong>Titre :</strong> {{ $page->titre }}
     </div>

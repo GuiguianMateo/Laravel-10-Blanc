@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Repositories\SousMenuRepository;
+use App\Http\Requests\SousMenuRequest;
 use App\Models\Menu;
 use App\Models\Page;
 use App\Models\SousMenu;
@@ -41,7 +42,7 @@ class SousMenuController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SousMenuRequest $request)
     {
 
         $this->sousMenuRepository->store($request);
@@ -83,7 +84,7 @@ class SousMenuController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(SousMenuRequest $request, $id)
     {
 
         $this->sousMenuRepository->update($request, $id);

@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container"><br>
-    <h1>Sous-Menu List</h1>
     <a href="{{ route('sousmenu.create') }}" class="btn btn-primary mb-3">Ajouter</a>
     <ul class="list-group">
         @forelse ($sous_menus as $sousmenu)

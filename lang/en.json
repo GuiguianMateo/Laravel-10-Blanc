@@ -77,6 +77,36 @@
     "Liste des Sous-Menus": "Submenu's list",
     "Liste des Pages": "Page's list",
 
+    "Ajouter": "Add",
+    "Supprimer": "Delete",
+    "Détail": "Detail",
+    "Modifier": "Edit",
+    "Crée": "Create",
+
+    "Titre": "Title",
+    "Lien": "Link",
+    "Statut": "Status",
+    "Liée au menu": "Linked to the menu",
+
+
+    "Titre du menu": "Menu's Title",
+    "Lien du menu": "Menu's Link",
+    "Voulez-vous afficher le menu?": "Do you want to display the menu?",
+
+
+    "Titre du sous-menu": "Submenu's Title",
+    "Lien du sous-menu": "Submenu's Link",
+    "Voulez-vous afficher le sous-menu?": "Do you want to display the Submenu?",
+    "Choisir un Menu": "Choose from menu",
+    "Veuillez choisir un Menu": "Please Choose a menu",
+
+
+    "Titre de la page": "Submenu's Title",
+    "Message de la page": "Submenu's Link",
+    "Voulez-vous publier la page?": "Do you want to publish the Submenu?",
+    "Choisir un Sous-menu": "Choose from submenu",
+    "Veuillez choisir un Sous-menu": "Please Choose a submenu",
+
     "Oui": "Yes",
     "Non": "No",
 

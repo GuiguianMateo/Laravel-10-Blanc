@@ -42,7 +42,7 @@
         <div class="mb-3">
             <label for="menu_id">{{ __('Choisir un Menu')}}</label>
             <select class="form-select" name="menu_id" id="menu_id">
-                <option value="menu">{{ __('Veuilliez choisir un Meu')}}</option>
+                <option value="menu">{{ __('Veuillez choisir un Menu')}}</option>
                 @foreach ($menus as $menu)
                     <option value="{{ $menu->id }}"
                         {{ $menu->id == $sousmenu->menu_id ? 'selected' : '' }}>{{ $menu->titre }}

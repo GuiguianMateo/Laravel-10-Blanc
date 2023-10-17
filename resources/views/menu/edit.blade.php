@@ -26,18 +26,18 @@
             <label class="form-check-label" for="visible">{{ __('Voulez-vous afficher le menu?')}}</label>
             <div class="form-check">
                 <input type="radio" class="form-check-input" name="afficher" id="oui" value="1" {{ $menu->afficher ? 'checked' : '' }}>
-                <label class="form-check-label" for="oui">Oui</label>
+                <label class="form-check-label" for="oui">{{ __('Oui')}}</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" name="afficher" id="non" value="0" {{ !$menu->afficher ? 'checked' : '' }}>
-                <label class="form-check-label" for="non">Non</label>
+                <label class="form-check-label" for="non">{{ __('Non')}}</label>
             </div>
             @error('afficher')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-primary">Modifier</button>
+        <button type="submit" class="btn btn-primary">{{ __('Modifier')}}</button>
     </form>
 </div>
 @endsection

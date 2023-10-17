@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="mb-3">
-        <strong>Title :</strong> {{ $menu->titre }}
+        <strong>Titre :</strong> {{ $menu->titre }}
     </div>
     <div class="mb-3">
         <strong>Lien :</strong> {{ $menu->lien }}

@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="container"><br>
-    <a href="{{ route('sousmenu.create') }}" class="btn btn-primary mb-3">{{ __('Ajouter')}}</a>
+    @can('sousmenu-create')
+        <a href="{{ route('sousmenu.create') }}" class="btn btn-primary mb-3">{{ __('Ajouter')}}</a>
+    @endcan
     <ul class="list-group">
         @forelse ($sous_menus as $sousmenu)
         <li class="list-group-item">
@@ -11,7 +13,9 @@
                     {{ $sousmenu->titre }} [{{ $sousmenu->afficher ? 'Afficher' : 'Non Afficher' }}]
                 </div>
                 <div>
-                    <a href="{{ route('sousmenu.show', $sousmenu->id) }}" class="btn btn-info">{{ __('Détail')}}</a>
+                    @can('sousmenu-show')
+                        <a href="{{ route('sousmenu.show', $sousmenu->id) }}" class="btn btn-info">{{ __('Détail')}}</a>
+                    @endcan
                 </div>
             </div>
         </li>

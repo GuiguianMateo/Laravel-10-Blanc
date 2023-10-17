@@ -14,11 +14,15 @@
     <div class="mb-3">
         <strong>{{ __('Liée au Sous-menu')}} :</strong> {{ $page->sousmenu->titre }}
     </div>
-    <a href="{{ route('page.edit', $page->id) }}" class="btn btn-primary">{{ __('Modifier')}}</a>
+    @can('page-edit')
+        <a href="{{ route('page.edit', $page->id) }}" class="btn btn-primary">{{ __('Modifier')}}</a>
+    @endcan
     <form action="{{ route('page.destroy', $page->id) }}" method="POST">
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-danger">{{ __('Supprimer')}}</button>
+        @can('page-delete')
+            <button type="submit" class="btn btn-danger">{{ __('Supprimer')}}</button>
+        @endcan
     </form>
 </div>
 @endsection

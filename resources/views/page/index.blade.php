@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="container">
-    <a href="{{ route('page.create') }}" class="btn btn-primary mb-3">{{ __('Ajouter')}}</a>
+    @can('page-create')
+        <a href="{{ route('page.create') }}" class="btn btn-primary mb-3">{{ __('Ajouter')}}</a>
+    @endcan
     <ul class="list-group">
         @forelse ($pages as $page)
         <li class="list-group-item">
@@ -11,7 +13,9 @@
                     {{ $page->titre }} [{{ $page->publier ? 'Publier' : 'Non Publier' }}]
                 </div>
                 <div>
-                    <a href="{{ route('page.show', $page->id) }}" class="btn btn-info">{{ __('Détail')}}</a>
+                    @can('page-show')
+                        <a href="{{ route('page.show', $page->id) }}" class="btn btn-info">{{ __('Détail')}}</a>
+                    @endcan
                 </div>
             </div>
         </li>

@@ -33,11 +33,15 @@
             <body>
                 <div class="container">
                   <nav>
-                    <a href="{{ '/' }}">{{ __('Home')}}</a> |
+                    <a href="{{ '/' }}">{{ __('Accueil')}}</a> |
                     <a href="{{ route('menu.index') }}">{{ __('Liste des Menus') }}</a> |
                     <a href="{{ route('sousmenu.index') }}">{{ __('Liste des Sous-Menus') }}</a> |
                     <a href="{{ route('page.index') }}">{{ __('Liste des Pages') }}</a>
-
+                    @auth
+                    @else
+                        <a href="{{ url('/register') }}">{{ __('Inscription') }}</a> |
+                        <a href="{{ url('/login') }}">{{ __('Connexion') }}</a>
+                    @endauth
 
                     <div>
                         @if(app()->getLocale() == 'fr')

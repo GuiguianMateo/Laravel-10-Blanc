@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 use App\Http\Requests\Request;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class MenuRequest extends FormRequest
@@ -13,6 +13,7 @@ class MenuRequest extends FormRequest
     public function authorize(): bool
     {
         return true;
+
     }
 
     /**

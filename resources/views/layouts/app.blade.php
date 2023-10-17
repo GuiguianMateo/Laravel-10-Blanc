@@ -33,15 +33,15 @@
             <body>
                 <div class="container">
                   <nav>
-                    <a href="{{ '/' }}">Accueil</a> |
-                    <a href="{{ route('menu.index') }}">Listes des Menus</a> |
-                    <a href="{{ route('sousmenu.index') }}">Listes des Sous-Menus</a> |
-                    <a href="{{ route('page.index') }}">Listes des Pages</a>
+                    <a href="{{ '/' }}">{{ __('Home')}}</a> |
+                    <a href="{{ route('menu.index') }}">{{ __('Liste des Menus') }}</a> |
+                    <a href="{{ route('sousmenu.index') }}">{{ __('Liste des Sous-Menus') }}</a> |
+                    <a href="{{ route('page.index') }}">{{ __('Liste des Pages') }}</a>
 
 
                     <div>
                         @if(app()->getLocale() == 'fr')
-                            <a href="{{ route('language.change', 'en') }}">{{ __('English') }}</a>
+                            <a href="{{ route('language.change', 'en') }}">{{ __('Anglais') }}</a>
                         @else
                             <a href="{{ route('language.change', 'fr') }}">{{ __('French') }}</a>
                         @endif

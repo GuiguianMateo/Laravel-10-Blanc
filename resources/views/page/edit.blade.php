@@ -5,40 +5,44 @@
     <form action="{{ route('page.update', $page->id) }}" method="post">
         @csrf
         @method('put')
+
         <div class="mb-3">
-            <label for="titre">Titre de la page</label>
+            <label for="titre">{{ __('Titre de la page')}}</label>
             <input type="text" class="form-control" name="titre" value="{{ $page->titre }}">
             @error('titre')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
+
         <div class="mb-3">
-            <label for="message">Message de la page</label>
+            <label for="message">{{ __('Message de la page')}}</label>
             <input type="text" class="form-control" name="message" value="{{ $page->message }}">
             @error('message')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
+
         <div class="mb-3">
-            <label for="publier">Voulez-vous publier la page?</label>
+            <label for="publier">{{ __('Home')}}Voulez-vous publier la page</label>
             <div class="form-check">
                 <input type="radio" class="form-check-input" name="publier" id="oui" value="1"
                     {{ $page->publier ? 'checked' : '' }}>
-                <label class="form-check-label" for="oui">Oui</label>
+                <label class="form-check-label" for="oui">{{ __('Oui')}}</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" name="publier" id="non" value="0"
                     {{ !$page->publier ? 'checked' : '' }}>
-                <label class="form-check-label" for="non">Non</label>
+                <label class="form-check-label" for="non">{{ __('Non')}}</label>
             </div>
             @error('publier')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
+
         <div class="mb-3">
-            <label for="sousmenu_id">Choisir un Sous-Menu</label>
+            <label for="sousmenu_id">{{ __('Choisir un Sous-menu')}}</label>
             <select class="form-select" name="sousmenu_id" id="sousmenu_id">
-                <option value="sousmenu">Veuillez choisir un Sous-Menu</option>
+                <option value="sousmenu">{{ __('Veuilliez choisir un Sous-menu')}}</option>
                 @foreach ($sousmenus as $sousmenu)
                     <option value="{{ $sousmenu->id }}"
                         {{ $sousmenu->id == $page->sousmenu_id ? 'selected' : '' }}>{{ $sousmenu->titre }}
@@ -49,7 +53,8 @@
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Modifier</button>
+
+        <button type="submit" class="btn btn-primary">{{ __('Modifier')}}</button>
     </form>
 </div>
 @endsection

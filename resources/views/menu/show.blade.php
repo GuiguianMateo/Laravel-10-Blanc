@@ -3,19 +3,19 @@
 @section('content')
 <div class="container">
     <div class="mb-3">
-        <strong>Titre :</strong> {{ $menu->titre }}
+        <strong>{{ __('Titre')}} :</strong> {{ $menu->titre }}
     </div>
     <div class="mb-3">
-        <strong>Lien :</strong> {{ $menu->lien }}
+        <strong>{{ __('Lien')}} :</strong> {{ $menu->lien }}
     </div>
     <div class="mb-3">
-        <strong>Statut :</strong> {{ $menu->afficher ? 'Afficher' : 'Non Afficher' }}
+        <strong>{{ __('Statut')}} :</strong> {{ $menu->afficher ? 'Afficher' : 'Non Afficher' }}
     </div>
-    <a href="{{ route('menu.edit', $menu->id) }}" class="btn btn-primary">Modifier</a>
+    <a href="{{ route('menu.edit', $menu->id) }}" class="btn btn-primary">{{ __('Modifier')}}</a>
     <form action="{{ route('menu.destroy', $menu->id) }}" method="POST">
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-danger">Supprimer</button>
+        <button type="submit" class="btn btn-danger">{{ __('Supprimer')}}</button>
     </form>
 </div>
 @endsection

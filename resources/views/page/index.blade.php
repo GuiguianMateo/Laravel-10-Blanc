@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <a href="{{ route('page.create') }}" class="btn btn-primary mb-3">Ajouter</a>
+    <a href="{{ route('page.create') }}" class="btn btn-primary mb-3">{{ __('Ajouter')}}</a>
     <ul class="list-group">
         @forelse ($pages as $page)
         <li class="list-group-item">
@@ -11,13 +11,13 @@
                     {{ $page->titre }} [{{ $page->publier ? 'Publier' : 'Non Publier' }}]
                 </div>
                 <div>
-                    <a href="{{ route('page.show', $page->id) }}" class="btn btn-info">Détail</a>
+                    <a href="{{ route('page.show', $page->id) }}" class="btn btn-info">{{ __('Détail')}}</a>
                 </div>
             </div>
         </li>
         @empty
         <li class="list-group-item">
-            Aucune page connue
+            {{ __('Aucune page connu')}}
         </li>
         @endforelse
     </ul>

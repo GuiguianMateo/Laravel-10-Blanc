@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container"><br>
-    <a href="{{ route('menu.create') }}" class="btn btn-primary mb-3">Ajouter</a>
+    <a href="{{ route('menu.create') }}" class="btn btn-primary mb-3">{{ __('Ajouter')}}</a>
     <ul class="list-group">
         @forelse ($menus as $menu)
         <li class="list-group-item">
@@ -11,13 +11,13 @@
                     {{ $menu->titre }} [{{ $menu->afficher ? 'Afficher' : 'Non Afficher' }}]
                 </div>
                 <div>
-                    <a href="{{ route('menu.show', $menu->id) }}" class="btn btn-info">Détail</a>
+                    <a href="{{ route('menu.show', $menu->id) }}" class="btn btn-info">{{ __('Détail')}}</a>
                 </div>
             </div>
         </li>
         @empty
         <li class="list-group-item">
-            Aucun menu connu
+            {{ __('Aucun menu connu')}}
         </li>
         @endforelse
     </ul>

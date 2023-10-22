@@ -10,7 +10,7 @@
         <li class="list-group-item">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    {{ $page->titre }} [{{ $page->publier ? 'Publier' : 'Non Publier' }}]
+                    {{ $page->titre }} [{{ $page->publier ?  __('Publier') : __('Non Publier') }}]
                 </div>
                 <div>
                     @can('page-show')

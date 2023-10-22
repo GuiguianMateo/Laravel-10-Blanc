@@ -8,7 +8,7 @@
 
         <div class="mb-3">
             <label for="titre">{{ __('Titre du sous-menu')}}</label>
-            <input type="text" class="form-control" name="titre" id="titre" placeholder="Titre du sous-menu">
+            <input type="text" class="form-control" name="titre" id="titre" placeholder="{{ __('Titre du sous-menu')}}">
             @error('titre')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -16,7 +16,7 @@
 
         <div class="mb-3">
             <label for="lien">{{ __('Lien du sous-menu')}}</label>
-            <input type="text" class="form-control" name="lien" id="lien" placeholder="Lien du sous-menu">
+            <input type="text" class="form-control" name="lien" id="lien" placeholder="{{ __('Lien du sous-menu')}}">
             @error('lien')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -40,7 +40,7 @@
         <div class="mb-3">
             <label for="menu_id">{{ __('Choisir un Menu')}}</label>
             <select class="form-select" name="menu_id" id="menu_id">
-                <option value="menu">{{ __('Veuillez cjoisir un Menu')}}</option>
+                <option value="menu">{{ __('Veuillez choisir un Menu')}}</option>
                 @foreach ($menus as $menu)
                     <option value="{{ $menu->id }}">{{ $menu->titre }}</option>
                 @endforeach

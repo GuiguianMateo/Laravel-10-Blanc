@@ -8,7 +8,7 @@
 
         <div class="mb-3">
             <label for="titre">{{ __('Titre de la page')}}</label>
-            <input type="text" class="form-control" name="titre" id="titre" placeholder="Titre de la page">
+            <input type="text" class="form-control" name="titre" id="titre" placeholder="{{ __('Titre de la page')}}">
             @error('titre')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -16,7 +16,7 @@
 
         <div class="mb-3">
             <label for="message">{{ __('Message de la page')}}</label>
-            <input type="text" class="form-control" name="message" id="message" placeholder="Message de la page">
+            <input type="text" class="form-control" name="message" id="message" placeholder="{{ __('Message de la page')}}">
             @error('message')
                 <p class="text-danger">{{ $message }}</p>
             @enderror

@@ -39,15 +39,15 @@
                     <a href="{{ route('page.index') }}">{{ __('Liste des Pages') }}</a>
                     @auth
                     @else
-                        <a href="{{ url('/register') }}">{{ __('Inscription') }}</a> |
+                        || <a href="{{ url('/register') }}">{{ __('Inscription') }}</a> |
                         <a href="{{ url('/login') }}">{{ __('Connexion') }}</a>
                     @endauth
 
                     <div>
                         @if(app()->getLocale() == 'fr')
-                            <a href="{{ route('language.change', 'en') }}">{{ __('Anglais') }}</a>
+                            <a href="{{ route('language.change', 'en') }}">{{--<img src="{{ asset('storage/image/united_kingdom.jpg') }}">--}}{{ __('Changer vers l`Anglais') }}</a>
                         @else
-                            <a href="{{ route('language.change', 'fr') }}">{{ __('French') }}</a>
+                            <a href="{{ route('language.change', 'fr') }}">{{--<img src="{{ asset('storage/image/france.jpg') }}">--}}{{ __('Change to French') }}</a>
                         @endif
                     </div>
                   </nav>

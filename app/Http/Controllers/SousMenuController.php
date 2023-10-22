@@ -8,6 +8,7 @@ use App\Models\Menu;
 use App\Models\Page;
 use App\Models\SousMenu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SousMenuController extends Controller
 {
@@ -34,9 +35,12 @@ class SousMenuController extends Controller
      */
     public function create()
     {
-        $menus = Menu::all();
-        $sous_menus = SousMenu::all();
-        return view('sousmenu.create', compact('sous_menus', 'menus'));
+        if (Auth::user()->can('sousmenu-create')) {
+            $menus = Menu::all();
+            $sous_menus = SousMenu::all();
+            return view('sousmenu.create', compact('sous_menus', 'menus'));
+        }
+        abort(401);
     }
 
     /**
@@ -67,8 +71,10 @@ class SousMenuController extends Controller
      */
     public function show(SousMenu $sousmenu)
     {
-        return view('sousmenu.show', compact('sousmenu'));
-
+        if (Auth::user()->can('sousmenu-show')) {
+            return view('sousmenu.show', compact('sousmenu'));
+        }
+        abort(401);
     }
 
     /**
@@ -76,9 +82,11 @@ class SousMenuController extends Controller
      */
     public function edit(SousMenu $sousmenu)
     {
-        $menus = Menu::all();
-        return view('sousmenu.edit', compact('sousmenu', 'menus'));
-
+        if (Auth::user()->can('sousmenu-edit')) {
+            $menus = Menu::all();
+            return view('sousmenu.edit', compact('sousmenu', 'menus'));
+        }
+        abort(401);
     }
 
     /**
@@ -107,13 +115,15 @@ class SousMenuController extends Controller
      */
     public function destroy(SousMenu $sousmenu)
     {
-        $pages = Page::where('sousmenu_id', $sousmenu->id)->get();
-        foreach ($pages as $page) {
-            $page->delete();
+        if (Auth::user()->can('sousmenu-destroy')) {
+            $pages = Page::where('sousmenu_id', $sousmenu->id)->get();
+            foreach ($pages as $page) {
+                $page->delete();
+            }
+            $sousmenu->delete();
+
+            return redirect()->route('sousmenu.index');
         }
-        $sousmenu->delete();
-
-        return redirect()->route('sousmenu.index');
-
+        abort(401);
     }
 }

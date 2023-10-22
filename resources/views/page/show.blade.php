@@ -9,7 +9,7 @@
         <strong>{{ __('Message')}} :</strong> {{ $page->message }}
     </div>
     <div class="mb-3">
-        <strong>{{ __('Statut')}} :</strong> {{ $page->publier ? 'Publier' : 'Non Publier' }}
+        <strong>{{ __('Statut')}} :</strong> {{ $page->publier ?  __('Publier') : __('Non Publier') }}
     </div>
     <div class="mb-3">
         <strong>{{ __('Liée au Sous-menu')}} :</strong> {{ $page->sousmenu->titre }}

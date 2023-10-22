@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SousMenuController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,9 +27,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('/', Controller::class);
 
-Route::resource('menu', MenuController::class);
-Route::resource('sousmenu', SousMenuController::class);
-Route::resource('page', PageController::class);
+Route::middleware(['acces'])->group(function () {
+    Route::resource('menu', MenuController::class);
+    Route::resource('sousmenu', SousMenuController::class);
+    Route::resource('page', PageController::class);
+});
 
 Route::get('/login', function (){
     return view('/login');

@@ -7,6 +7,7 @@ use App\Http\Requests\PageRequest;
 use App\Models\Page;
 use App\Models\SousMenu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
@@ -32,9 +33,12 @@ class PageController extends Controller
      */
     public function create()
     {
-        $pages = Page::all();
-        $sous_menus = SousMenu::all();
-        return view('page.create', compact('pages','sous_menus'));
+        if (Auth::user()->can('page-create')) {
+            $pages = Page::all();
+            $sous_menus = SousMenu::all();
+            return view('page.create', compact('pages','sous_menus'));
+        }
+        abort(401);
     }
 
     /**
@@ -66,7 +70,10 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        return view('page.show', compact('page'));
+        if (Auth::user()->can('page-show')) {
+            return view('page.show', compact('page'));
+        }
+        abort(401);
     }
 
     /**
@@ -74,8 +81,12 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        $sousmenus = SousMenu::all();
-        return view('page.edit', compact('page', 'sousmenus'));    }
+        if (Auth::user()->can('page-edit')) {
+            $sousmenus = SousMenu::all();
+            return view('page.edit', compact('page', 'sousmenus'));
+        }
+        abort(401);
+    }
 
     /**
      * Update the specified resource in storage.
@@ -104,7 +115,10 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
-        $page->delete();
-        return redirect()->route('page.index');
+        if (Auth::user()->can('page-destroy')) {
+            $page->delete();
+            return redirect()->route('page.index');
+        }
+        abort(401);
     }
 }

@@ -9,10 +9,10 @@
         <strong>{{ __('Lien')}} :</strong> {{ $sousmenu->lien }}
     </div>
     <div class="mb-3">
-        <strong>{{ __('Statut')}} :</strong> {{ $sousmenu->afficher ? 'Afficher' : 'Non Afficher' }}
+        <strong>{{ __('Statut')}} :</strong> {{ $sousmenu->afficher ?  __('Afficher') : __('Non Afficher') }}
     </div>
     <div class="mb-3">
-        <strong>{{ __('Liée au menu')}} :</strong> {{ $sousmenu->menu->titre }}
+        <strong>{{ __('Liée au Menu')}} :</strong> {{ $sousmenu->menu->titre }}
     </div>
     @can('sousmenu-edit')
         <a href="{{ route('sousmenu.edit', $sousmenu->id) }}" class="btn btn-primary">{{ __('Modifier')}}</a>

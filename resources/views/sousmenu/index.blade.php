@@ -10,7 +10,7 @@
         <li class="list-group-item">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    {{ $sousmenu->titre }} [{{ $sousmenu->afficher ? 'Afficher' : 'Non Afficher' }}]
+                    {{ $sousmenu->titre }} [{{ $sousmenu->afficher ?  __('Afficher') : __('Non Afficher') }}]
                 </div>
                 <div>
                     @can('sousmenu-show')

@@ -87,7 +87,9 @@
     "Titre": "Title",
     "Lien": "Link",
     "Statut": "Status",
-    "Liée au menu": "Linked to the menu",
+    "Liée au Menu": "Linked to the Menu",
+    "Liée au Sous-menu": "Linked to the Submenu",
+
 
 
     "Titre du menu": "Menu's Title",
@@ -113,6 +115,13 @@
 
     "Inscription": "Register",
     "Connexion": "Login",
+
+    "Afficher": "Displayed",
+    "Non Afficher": "Undisplayed",
+
+    "Publier": "Publish",
+    "Non Publier": "Not Publish",
+
 
 
     "BIENVENU": "WELCOME"

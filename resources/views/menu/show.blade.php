@@ -9,7 +9,7 @@
         <strong>{{ __('Lien')}} :</strong> {{ $menu->lien }}
     </div>
     <div class="mb-3">
-        <strong>{{ __('Statut')}} :</strong> {{ $menu->afficher ? 'Afficher' : 'Non Afficher' }}
+        <strong>{{ __('Statut')}} :</strong> {{ $menu->afficher ?  __('Afficher') : __('Non Afficher') }}
     </div>
     @can('menu-edit')
         <a href="{{ route('menu.edit', $menu->id) }}" class="btn btn-primary">{{ __('Modifier')}}</a>

@@ -10,7 +10,7 @@
         <li class="list-group-item">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    {{ $menu->titre }} [{{ $menu->afficher ? 'Afficher' : 'Non Afficher' }}]
+                    {{ $menu->titre }} [{{ $menu->afficher ?  __('Afficher') : __('Non Afficher') }}]
                 </div>
                 <div>
                     @can('menu-create')

@@ -7,19 +7,12 @@
         @method('post')
 
         <div class="mb-3">
-            <label for="titre">{{ __('Titre du sous-menu')}}</label>
-            <input type="text" class="form-control" name="titre" id="titre" placeholder="{{ __('Titre du sous-menu')}}">
-            @error('titre')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <x-input-text property="{{ __('Titre')}}" label="{{ __('Titre')}}" max-lenght="200"/>
         </div>
 
         <div class="mb-3">
-            <label for="lien">{{ __('Lien du sous-menu')}}</label>
-            <input type="text" class="form-control" name="lien" id="lien" placeholder="{{ __('Lien du sous-menu')}}">
-            @error('lien')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <x-input-text property="{{ __('Lien')}}" label="{{ __('Lien')}}" max-lenght="200"/>
+
         </div>
 
         <div class="mb-3">

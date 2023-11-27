@@ -7,19 +7,11 @@
         @method('put')
 
         <div class="mb-3">
-            <label for="titre">{{ __('Titre du sous-menu')}}</label>
-            <input type="text" class="form-control" name="titre" value="{{ $sousmenu->titre }}">
-            @error('titre')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <x-input-text property="{{ __('Titre') }}" label="{{ __('Titre') }}" max-lenght="200"/>
         </div>
 
         <div class="mb-3">
-            <label for="lien">{{ __('Lien du sous-menu')}}</label>
-            <input type="text" class="form-control" name="lien" value="{{ $sousmenu->lien }}">
-            @error('lien')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <x-input-text property="{{ __('Lien') }}" label="{{ __('Lien') }}" max-lenght="200"/>
         </div>
 
         <div class="mb-3">

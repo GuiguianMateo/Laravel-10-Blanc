@@ -7,19 +7,13 @@
         @method('put')
 
         <div class="mb-3">
-            <label for="titre" class="form-label">{{ __('Titre du menu')}}</label>
-            <input type="text" class="form-control" name="titre" value="{{ $menu->titre }}">
-            @error('titre')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <x-input-text property="{{ __('Titre') }}" label="{{ __('Titre') }}" max-lenght="200"/>
+
         </div>
 
         <div class="mb-3">
-            <label for="lien" class="form-label">{{ __('Lien du menu')}}</label>
-            <input type="text" class="form-control" name="lien" value="{{ $menu->lien }}">
-            @error('lien')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <x-input-text property="{{ __('Lien') }}" label="{{ __('Lien') }}" max-lenght="200"/>
+
         </div>
 
         <div class="mb-3">

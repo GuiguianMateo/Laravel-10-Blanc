@@ -13,4 +13,9 @@ class Menu extends Model
     {
         return $this->hasMany(SousMenu::class);
     }
+
+    public function pages()
+    {
+        return $this->hasManyThrough(Page::class, SousMenu::class);
+    }
 }

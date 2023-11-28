@@ -7,36 +7,15 @@
         @method('put')
 
         <div class="mb-3">
-            <label for="titre">{{ __('Titre de la page')}}</label>
-            <input type="text" class="form-control" name="titre" value="{{ $page->titre }}">
-            @error('titre')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <x-input-text property="titre" label="{{ __('Titre') }}"/>
         </div>
 
         <div class="mb-3">
-            <label for="message">{{ __('Message de la page')}}</label>
-            <input type="text" class="form-control" name="message" value="{{ $page->message }}">
-            @error('message')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <x-input-text property="message" label="{{ __('Message') }}"/>
         </div>
 
         <div class="mb-3">
-            <label for="publier">{{ __('Voulez-vous publier la page?')}}</label>
-            <div class="form-check">
-                <input type="radio" class="form-check-input" name="publier" id="oui" value="1"
-                    {{ $page->publier ? 'checked' : '' }}>
-                <label class="form-check-label" for="oui">{{ __('Oui')}}</label>
-            </div>
-            <div class="form-check">
-                <input type="radio" class="form-check-input" name="publier" id="non" value="0"
-                    {{ !$page->publier ? 'checked' : '' }}>
-                <label class="form-check-label" for="non">{{ __('Non')}}</label>
-            </div>
-            @error('publier')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <x-input-radio property="publier" label="{{ __('Voulez-vous publier la page?') }}"/>
         </div>
 
         <div class="mb-3">

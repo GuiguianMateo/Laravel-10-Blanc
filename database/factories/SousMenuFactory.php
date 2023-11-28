@@ -21,7 +21,7 @@ class SousMenuFactory extends Factory
             'titre' => fake()->word(),
             'afficher' => fake()->boolean(),
             'menu_id' => Menu::factory()->create(),
-            'link' =>fake()->url()
+            'lien' =>fake()->url()
         ];
     }
 }

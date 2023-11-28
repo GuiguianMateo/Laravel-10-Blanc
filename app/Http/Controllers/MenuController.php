@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Repositories\MenuRepository;
 use App\Http\Requests\MenuRequest;
+use App\Mail\InfoMail;
 use App\Models\Menu;
 use App\Models\Page;
 use App\Models\SousMenu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class MenuController extends Controller
 {
@@ -44,10 +46,12 @@ class MenuController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(MenuRequest $request)
+    public function store(MenuRequest $request, Menu $menu)
     {
 
-        $this->menuRepository->store($request);
+        $this->menuRepository->store($request, $menu);
+        Mail::to(Auth::user()->email)->send(new InfoMail($menu));
+
         return redirect()->route('menu.index');
 
 
@@ -90,10 +94,12 @@ class MenuController extends Controller
 
 
     //public function update(Request $request, Menu $menu)
-    public function update(MenuRequest $request, $id)
+    public function update(MenuRequest $request, Menu $menu)
     {
 
-        $this->menuRepository->update($request, $id);
+        $this->menuRepository->store($request, $menu);
+        Mail::to(Auth::user()->email)->send(new InfoMail($menu));
+
         return redirect()->route('menu.index');
 
 /*         $data = $request->all();
@@ -110,7 +116,7 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu, SousMenu $sousmenu)
     {
-        if (Auth::user()->can('menu-destroy')) {
+        if (Auth::user()->can('menu-delete')) {
 
             $sousmenus = SousMenu::where('menu_id', $menu->id)->get();
             foreach ($sousmenus as $sousmenu) {

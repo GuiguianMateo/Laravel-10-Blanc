@@ -94,7 +94,7 @@ class PageController extends Controller
     public function update(PageRequest $request, $id)
     {
 
-        $this->pageRepository->store($request, $id);
+        $this->pageRepository->update($request, $id);
         return redirect()->route('page.index');
 
        /*

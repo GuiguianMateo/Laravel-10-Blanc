@@ -19,7 +19,7 @@ class MenuFactory extends Factory
         return [
             'titre' => fake()->word(),
             'afficher' => fake()->boolean(),
-            'link' =>fake()->url()
+            'lien' =>fake()->url()
         ];
     }
 }

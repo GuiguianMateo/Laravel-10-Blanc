@@ -116,7 +116,7 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu, SousMenu $sousmenu)
     {
-        if (Auth::user()->can('menu-destroy')) {
+        if (Auth::user()->can('menu-delete')) {
 
             $sousmenus = SousMenu::where('menu_id', $menu->id)->get();
             foreach ($sousmenus as $sousmenu) {

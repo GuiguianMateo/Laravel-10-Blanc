@@ -1,4 +1,3 @@
-
 <label for="{{ $property }}" class="form-label">{{ $label }}</label>
 <input type="text" class="form-control" id="{{ $property }}" name="{{ $property }}"
     value="{{ old($property) }}" placeholder="{{ $label }}">

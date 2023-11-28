@@ -7,13 +7,11 @@
         @method('put')
 
         <div class="mb-3">
-            <x-input-text property="{{ __('Titre') }}" label="{{ __('Titre') }}" max-lenght="200"/>
-
+            <x-input-text property="titre" label="{{ __('Titre') }}" maxlenght="150"/>
         </div>
 
         <div class="mb-3">
-            <x-input-text property="{{ __('Lien') }}" label="{{ __('Lien') }}" max-lenght="200"/>
-
+            <x-input-text property="lien" label="{{ __('Lien') }}" maxlenght="200"/>
         </div>
 
         <div class="mb-3">

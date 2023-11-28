@@ -14,11 +14,13 @@ class InputText extends Component
 
     public $property;
     public $label;
+    public $maxlenght;
 
-    public function __construct($property, $label)
+    public function __construct($property, $label, $maxlenght)
     {
         $this-> property = $property;
         $this-> label = $label;
+        $this-> maxlenght = $maxlenght;
     }
 
     /**

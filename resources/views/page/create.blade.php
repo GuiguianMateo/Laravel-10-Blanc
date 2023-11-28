@@ -7,26 +7,15 @@
         @method('post')
 
         <div class="mb-3">
-            <x-input-text property="titre" label="{{ __('Titre') }}" maxlenght="150"/>
+            <x-input-text property="titre" label="{{ __('Titre') }}"/>
         </div>
 
         <div class="mb-3">
-            <x-input-text property="message" label="{{ __('Message') }}" maxlenght="200"/>
+            <x-input-text property="message" label="{{ __('Message') }}"/>
         </div>
 
         <div class="mb-3">
-            <label for="publier">{{ __('Voulez-vous publier la page?')}}</label>
-            <div class="form-check">
-                <input type="radio" class="form-check-input" name="publier" id="oui" value="1">
-                <label class="form-check-label" for="oui">{{ __('Oui')}}</label>
-            </div>
-            <div class="form-check">
-                <input type="radio" class="form-check-input" name="publier" id="non" value="0">
-                <label class="form-check-label" for="non">{{ __('Non')}}</label>
-            </div>
-            @error('publier')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <x-input-radio property="publier" label="{{ __('Voulez-vous publier la page?') }}"/>
         </div>
 
         <div class="mb-3">

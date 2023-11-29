@@ -29,7 +29,7 @@ class InfoMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Creation d`un menu',
+            subject: 'Information de CMS_Gestion',
         );
     }
 

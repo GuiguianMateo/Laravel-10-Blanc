@@ -18,7 +18,13 @@
             <x-input-radio property="afficher" label="{{ __('Voulez-vous afficher le sous-menu?') }}"/>
         </div>
 
+
         <div class="mb-3">
+            <x-input-select-sous-menu :menus="$menus" property="menu_id" label="{{ __('Veuillez choisir un Menu')}}" />
+        </div>
+
+
+   {{--      <div class="mb-3">
             <label for="menu_id">{{ __('Choisir un Menu')}}</label>
             <select class="form-select" name="menu_id" id="menu_id">
                 <option value="menu">{{ __('Veuillez choisir un Menu')}}</option>
@@ -29,9 +35,9 @@
             @error('menu_id')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
-        </div>
+        </div> --}}
 
-        <button type="submit" class="btn btn-primary">{{ __('Crée')}}</button>
+        <button type="submit" class="btn btn-primary">{{ __('Créer')}}</button>
     </form>
 </div>
 @endsection

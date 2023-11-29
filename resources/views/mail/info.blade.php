@@ -1,1 +1,2 @@
-<h1>Validation de la création d'un nouveau menu</h1>
+{{-- <h1>Validation de la {{ $property }} d'un nouveau {{ $label }}</h1> --}}
+<p>ok</p>

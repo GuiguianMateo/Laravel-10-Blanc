@@ -8,12 +8,15 @@ use Illuminate\View\Component;
 
 class InputSelect extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public $menus;
+    public $property;
+    public $label;
+
+    public function __construct($menus, $property, $label)
     {
-        //
+        $this->menus = $menus;
+        $this->property = $property;
+        $this->label = $label;
     }
 
     /**
@@ -21,6 +24,6 @@ class InputSelect extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.input-select');
+        return view('components.input-select-sous-menu');
     }
 }

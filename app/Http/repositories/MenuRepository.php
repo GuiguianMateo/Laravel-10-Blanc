@@ -24,7 +24,6 @@ class MenuRepository
 
     public function update($request, $id)
     {
-
         $menu = Menu::find($id);
 
         $data = $request->all();

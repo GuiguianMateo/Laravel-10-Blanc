@@ -49,7 +49,7 @@ class MenuController extends Controller
     public function store(MenuRequest $request, Menu $menu)
     {
 
-        $this->menuRepository->store($request, $menu);
+        $this->menuRepository->store($request);
         Mail::to(Auth::user()->email)->send(new InfoMail($menu));
 
         return redirect()->route('menu.index');
@@ -94,11 +94,11 @@ class MenuController extends Controller
 
 
     //public function update(Request $request, Menu $menu)
-    public function update(MenuRequest $request, Menu $menu)
+    public function update(MenuRequest $request, $id)
     {
 
-        $this->menuRepository->store($request, $menu);
-        Mail::to(Auth::user()->email)->send(new InfoMail($menu));
+        $this->menuRepository->update($request, $id);
+        //Mail::to(Auth::user()->email)->send(new InfoMail($menu));
 
         return redirect()->route('menu.index');
 

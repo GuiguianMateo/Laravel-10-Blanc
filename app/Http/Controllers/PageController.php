@@ -115,7 +115,7 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
-        if (Auth::user()->can('page-destroy')) {
+        if (Auth::user()->can('page-delete')) {
             $page->delete();
             return redirect()->route('page.index');
         }

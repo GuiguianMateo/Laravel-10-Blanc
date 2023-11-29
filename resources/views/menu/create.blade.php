@@ -18,7 +18,7 @@
             <x-input-radio property="afficher" label="{{ __('Voulez-vous afficher le menu?') }}"/>
         </div>
 
-        <button type="submit" class="btn btn-primary">{{ __('Crée')}}</button>
+        <button type="submit" class="btn btn-primary">{{ __('Créer')}}</button>
     </form>
 </div>
 @endsection

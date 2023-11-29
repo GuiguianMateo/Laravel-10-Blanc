@@ -115,7 +115,7 @@ class SousMenuController extends Controller
      */
     public function destroy(SousMenu $sousmenu)
     {
-        if (Auth::user()->can('sousmenu-destroy')) {
+        if (Auth::user()->can('sousmenu-delete')) {
             $pages = Page::where('sousmenu_id', $sousmenu->id)->get();
             foreach ($pages as $page) {
                 $page->delete();

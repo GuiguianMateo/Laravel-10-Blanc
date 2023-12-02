@@ -14,12 +14,9 @@
     @can('menu-edit')
         <a href="{{ route('menu.edit', $menu->id) }}" class="btn btn-primary">{{ __('Modifier')}}</a>
     @endcan
-    <form action="{{ route('menu.destroy', $menu->id) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        @can('menu-delete')
-            <button type="submit" class="btn btn-danger">{{ __('Supprimer')}}</button>
-        @endcan
-    </form>
+    @can('menu-delete')
+        <x-button-delete label="{{ __('Supprimer')}}" property="menu" :model="$menu" />
+    @endcan
+
 </div>
 @endsection

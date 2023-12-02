@@ -17,12 +17,8 @@
     @can('page-edit')
         <a href="{{ route('page.edit', $page->id) }}" class="btn btn-primary">{{ __('Modifier')}}</a>
     @endcan
-    <form action="{{ route('page.destroy', $page->id) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        @can('page-delete')
-            <button type="submit" class="btn btn-danger">{{ __('Supprimer')}}</button>
-        @endcan
-    </form>
+    @can('page-delete')
+        <x-button-delete label="{{ __('Supprimer')}}" property="page" :model="$page" />
+    @endcan
 </div>
 @endsection

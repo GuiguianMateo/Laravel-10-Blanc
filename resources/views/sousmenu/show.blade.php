@@ -17,12 +17,8 @@
     @can('sousmenu-edit')
         <a href="{{ route('sousmenu.edit', $sousmenu->id) }}" class="btn btn-primary">{{ __('Modifier')}}</a>
     @endcan
-    <form action="{{ route('sousmenu.destroy', $sousmenu->id) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        @can('sousmenu-delete')
-            <button type="submit" class="btn btn-danger">{{ __('Supprimer')}}</button>
-        @endcan
-    </form>
+    @can('sousmenu-delete')
+        <x-button-delete label="{{ __('Supprimer')}}" property="sousmenu" :model="$sousmenu" />
+    @endcan
 </div>
 @endsection

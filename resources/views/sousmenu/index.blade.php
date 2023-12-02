@@ -14,7 +14,7 @@
                 </div>
                 <div>
                     @can('sousmenu-show')
-                        <a href="{{ route('sousmenu.show', $sousmenu->id) }}" class="btn btn-info">{{ __('Détail')}}</a>
+                        <x-button-show property="sousmenu" :model="$sousmenu" label="{{ __('Details')}}" />
                     @endcan
                 </div>
             </div>

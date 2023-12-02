@@ -13,8 +13,8 @@
                     {{ $menu->titre }} [{{ $menu->afficher ?  __('Afficher') : __('Non Afficher') }}]
                 </div>
                 <div>
-                    @can('menu-create')
-                        <a href="{{ route('menu.show', $menu->id) }}" class="btn btn-info">{{ __('Détail')}}</a>
+                    @can('menu-show')
+                        <x-button-show property="menu" :model="$menu" label="{{ __('Details')}}" />
                     @endcan
                 </div>
             </div>

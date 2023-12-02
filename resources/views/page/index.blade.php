@@ -14,7 +14,7 @@
                 </div>
                 <div>
                     @can('page-show')
-                        <a href="{{ route('page.show', $page->id) }}" class="btn btn-info">{{ __('Détail')}}</a>
+                        <x-button-show property="page" :model="$page" label="{{ __('Details')}}" />
                     @endcan
                 </div>
             </div>

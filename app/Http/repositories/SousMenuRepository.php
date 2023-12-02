@@ -23,10 +23,10 @@ class SousMenuRepository
 
 
 
-    public function update($request, $id)
+    public function update($request, $sousmenu)
     {
 
-        $sousmenu = SousMenu::find($id);
+        $sousmenu = SousMenu::find($sousmenu->id);
 
         $data = $request->all();
 

@@ -2,19 +2,20 @@
 
 namespace App\View\Components;
 
+use App\Models\SousMenu;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class InputSelectPage extends Component
 {
-    public $sousmenu;
+    public $sous_menus;
     public $property;
     public $label;
 
-    public function __construct($sousmenu, $property, $label)
+    public function __construct(SousMenu $sous_menus, $property, $label)
     {
-        $this->sousmenu = $sousmenu;
+        $this->sous_menus = $sous_menus;
         $this->property = $property;
         $this->label = $label;
     }

@@ -19,7 +19,7 @@
         </div>
 
         <div class="mb-3">
-            <x-input-select-page :sousmenu="$sousmenu" property="sousmenu_id" label="{{ __('Veuillez choisir un Sous-menu')}}" />
+            <x-input-select-page :sousmenu="$sous_menus" property="sousmenu_id" label="{{ __('Veuillez choisir un Sous-menu')}}" />
         </div>
 
         <button type="submit" class="btn btn-primary">Créer</button>

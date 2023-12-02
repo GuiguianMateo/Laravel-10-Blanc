@@ -10,14 +10,15 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class InfoMail extends Mailable
+class MailUpdateMenu extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $menu;
     /**
      * Create a new message instance.
      */
+    public $menu;
+
     public function __construct(Menu $menu)
     {
         $this->menu = $menu;
@@ -39,7 +40,7 @@ class InfoMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.info',
+            view: 'mail.UpdateMenu',
         );
     }
 

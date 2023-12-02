@@ -9,12 +9,12 @@ class Menu extends Model
 {
     use HasFactory;
 
-    function sousMenus()
+    function sousmenu()
     {
         return $this->hasMany(SousMenu::class);
     }
 
-    public function pages()
+    public function page()
     {
         return $this->hasManyThrough(Page::class, SousMenu::class);
     }

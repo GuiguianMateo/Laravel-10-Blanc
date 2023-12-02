@@ -22,9 +22,9 @@ class MenuRepository
 
 
 
-    public function update($request, $id)
+    public function update($request, $menu)
     {
-        $menu = Menu::find($id);
+        $menu = Menu::find($menu->id);
 
         $data = $request->all();
 

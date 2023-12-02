@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Repositories\MenuRepository;
 use App\Http\Requests\MenuRequest;
-use App\Mail\InfoMail;
+use App\Mail\MailCreateMenu;
+use App\Mail\MailUpdateMenu;
 use App\Models\Menu;
 use App\Models\Page;
 use App\Models\SousMenu;
@@ -50,7 +51,7 @@ class MenuController extends Controller
     {
 
         $this->menuRepository->store($request);
-        Mail::to(Auth::user()->email)->send(new InfoMail($menu));
+        Mail::to(Auth::user()->email)->send(new MailCreateMenu($menu));
 
         return redirect()->route('menu.index');
 
@@ -94,11 +95,11 @@ class MenuController extends Controller
 
 
     //public function update(Request $request, Menu $menu)
-    public function update(MenuRequest $request, $id)
+    public function update(MenuRequest $request, Menu $menu)
     {
 
-        $this->menuRepository->update($request, $id);
-        //Mail::to(Auth::user()->email)->send(new InfoMail($menu));
+        $this->menuRepository->update($request, $menu);
+        Mail::to(Auth::user()->email)->send(new MailUpdateMenu($menu));
 
         return redirect()->route('menu.index');
 

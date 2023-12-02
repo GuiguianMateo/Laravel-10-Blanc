@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Repositories\SousMenuRepository;
 use App\Http\Requests\SousMenuRequest;
+use App\Mail\MailCreateSousMenu;
+use App\Mail\MailUpdateSousMenu;
 use App\Models\Menu;
 use App\Models\Page;
 use App\Models\SousMenu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class SousMenuController extends Controller
 {
@@ -46,10 +49,13 @@ class SousMenuController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(SousMenuRequest $request)
+    public function store(Request $request, SousMenu $sousmenu)
     {
 
         $this->sousMenuRepository->store($request);
+        Mail::to(Auth::user()->email)->send(new MailCreateSousMenu($sousmenu));
+
+
         return redirect()->route('sousmenu.index');
 
        /*  $data = $request->all();
@@ -92,10 +98,13 @@ class SousMenuController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(SousMenuRequest $request, $id)
+    public function update(Request $request, SousMenu $sousmenu)
     {
 
-        $this->sousMenuRepository->update($request, $id);
+        $this->sousMenuRepository->update($request, $sousmenu);
+        Mail::to(Auth::user()->email)->send(new MailUpdateSousMenu($sousmenu));
+
+
         return redirect()->route('sousmenu.index');
 
 

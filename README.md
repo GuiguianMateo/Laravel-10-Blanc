@@ -7,17 +7,94 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## README
+# README
+## Mise en Place
+### Acces au site
 
-Une fois que vous avez installé tout les fichers ci-dessus, je vous invite à aller dans le fichier '.env', et modifier certaine ligne : 
-l.14 : DB_DATABASE=cms
-l.16 : DB_PASSWORD=secret
+Dans le fichier Homestead.yaml situer dans votre dossier User/"Nom d'utilisateur"/Homestead
+Insere dans Sites ceci : 
 
-Avec ceci vous allez pouvoir vous connecter à la base de donnée, vous allez remarquer que celle-ci est vide en donnée.
+    - map: cms.test
+      to: /home/vagrant/code/cms_gestion/public
 
-Vous aller donc pouvoir ouvrir un cmd, vous rendre dans le fichier 'Homestead', et lancer la commande 'vagrant ssh'.
-Ensuite diriger vous vers votre projet, et lancer les commandes 'artisan db:seed --class=MenuSeeder', puis 'artisan db:seed --class=SousMenuSeeder',
-et enfin 'artisan db:seed --class=PageSeeder' pour obtenir de multiple donnée dans votre base.
+Ensuite dans databases : 
 
-Pour ensuite voir tout ceci, rendez vous dans votre naviguateur et taper dans l'url : 'cms.test'.
-Alors il ne vous reste plus qu'a vous connecter
+    - cms
+
+### Base de Donnée
+
+Vous allez créer un fichier qui se nomeras ".env" situer dans Homestead/code/cms_gestion
+Vous copierez l'interrieur du fichier .env.exemple (à coter du fichier .env)
+Et vous le collerez dans le fichier .env
+
+Ensuite vous allez y modifier :
+
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=cms
+    DB_USERNAME=homestead
+    DB_PASSWORD=secret
+
+Ainsi que :
+
+    MAIL_FROM_ADDRESS="example@gmail.com"
+    MAIL_FROM_NAME="Test mail"
+
+### CMD
+Dans un cmd windows vous allez pouvoir vous rendre dans homestead et y lancer la VM :
+
+    cd Homestead
+    vagrant up
+    vagrant ssh
+
+Et une fois dedans vous lancerez ces comandes
+
+    cd code/cms_gestion
+    artisan migrate
+    artisan db:seed --class=MenuSeeder
+    artisan db:seed --class=SousmenuSeeder
+    artisan db:seed --class=PageSeeder
+
+### Tinker
+
+Créeation des utilisateurs
+
+    User::create(["name"=> "Admin","email"=>"admin@gmail.com","password"=>bcrypt("adminadmin")]);
+    User::create(["name"=> "Editor","email"=>"edit@gmail.com","password"=>bcrypt("editedit")]);
+
+Ensuite la création des roles et leurs abilities
+
+    Bouncer::allow('admin')->to('menu-create');
+    Bouncer::allow('admin')->to('menu-show');
+    Bouncer::allow('admin')->to('menu-edit');
+    Bouncer::allow('admin')->to('menu-delete');
+    Bouncer::allow('admin')->to('sousmenu-create');
+    Bouncer::allow('admin')->to('sousmenu-show');
+    Bouncer::allow('admin')->to('sousmenu-edit');
+    Bouncer::allow('admin')->to('sousmenu-delete');
+
+    Bouncer::allow('editor')->to('page-create');
+    Bouncer::allow('editor')->to('page-show');
+    Bouncer::allow('editor')->to('page-edit');
+    Bouncer::allow('editor')->to('page-delete');
+
+Puis assigner les roles aux utilisateurs
+
+    $user = User::find(1);
+    Bouncer::assign('admin')->to($user);
+
+    $user = User::find(2);
+    Bouncer::assign('editor')->to($user);
+
+Pour finaliser rendez-vous dans l'url "cms.test"
+Connectez-vous avec le compte que vous souaiter
+
+    admin@gmail.com
+    adminadmin
+
+ou
+
+    editor
+    editedit
+

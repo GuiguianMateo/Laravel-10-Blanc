@@ -7,9 +7,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-### README
+# README
 ## Mise en Place
-# Acces au site
+### Acces au site
 
 Dans le fichier Homestead.yaml situer dans votre dossier User/"Nom d'utilisateur"/Homestead
 Insere dans Sites ceci : 
@@ -21,7 +21,7 @@ Ensuite dans databases :
 
     - cms
 
-# Base de Donnée
+### Base de Donnée
 
 Vous allez créer un fichier qui se nomeras ".env" situer dans Homestead/code/cms_gestion
 Vous copierez l'interrieur du fichier .env.exemple (à coter du fichier .env)
@@ -41,7 +41,7 @@ Ainsi que :
     MAIL_FROM_ADDRESS="example@gmail.com"
     MAIL_FROM_NAME="Test mail"
 
-# CMD
+### CMD
 Dans un cmd windows vous allez pouvoir vous rendre dans homestead et y lancer la VM :
 
     cd Homestead
@@ -56,7 +56,7 @@ Et une fois dedans vous lancerez ces comandes
     artisan db:seed --class=SousmenuSeeder
     artisan db:seed --class=PageSeeder
 
-# Tinker
+### Tinker
 
 Créeation des utilisateurs
 

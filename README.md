@@ -7,81 +7,6 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-Gestion de boutique
-Installation
-Mise en place du projet
-Mettre le dossier boutique dans le dossier Homestead/code
-
-Modifier le fichier Homestead.yaml
-
-Ajouter dans sites :
-
-  - map: boutique.test
-    to: /home/vagrant/code/boutique/public
-Ajouter dans databases :
-
-  - boutique
-Paramétrage de la base de données
-Modifier le fichier .env en changeant les lignes suivantes :
-
-    DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
-    DB_PORT=3306
-    DB_DATABASE=boutique
-    DB_USERNAME=root
-    DB_PASSWORD=secret
-Exécuter le cmd Windows, puis aller dans le dossier Homestead/
-
-Exécuter ces lignes de commande :
-
-  vagrant ssh
-  cd /code/boutique
-  composer install
-Alimentation de la base de données
-Exécuter ces commandes pour alimenter la base de données :
-
-  php artisan db:seed --class=VenteSeeder
-  php artisan db:seed --class=ProduitSeeder
-  php artisan db:seed --class=MarqueSeeder
-Création des utilisateurs
-Tinker :
-Créer le premier utilisateur :
-
-    artisan tinker
-    $user = new App\Model\User;
-    $user->name = 'Charles';   <-- _Exemple de nom_
-    $user->email = "charles@gmail.com";
-    $user->password=bcrypt('123456789');
-    $user->save();
-Faire pareil pour le deuxième utilisateur mais changer le nom et l'adresse mail
-
-Gestion des rôles et habilitations
-Bouncer
-Se rendre à l'utilisateur Charles avec les commandes suivantes (ici l'id numéro 1) :
-
-    $user = User::find(1);
-    Bouncer::allow('vendeur')->to('vente-create');
-    Bouncer::allow('vendeur')->to('vente-update');
-    Bouncer::allow('vendeur')->to('vente-retrieve');
-    Bouncer::assign('vendeur')->to($user);
-Faire de même avec l'utilisateur 2 :
-
-    $user = User::find(2);
-    Bouncer::allow('gerant')->to('vente-create');
-    Bouncer::allow('gerant')->to('vente-update');
-    Bouncer::allow('gerant')->to('vente-retrieve');
-    Bouncer::allow('gerant')->to('produit-create');
-    Bouncer::allow('gerant')->to('produit-update');
-    Bouncer::allow('gerant')->to('produit-retrieve');
-    Bouncer::allow('gerant')->to('marque-create');
-    Bouncer::allow('gerant')->to('marque-update');
-    Bouncer::allow('gerant')->to('marque-retrieve');
-    Bouncer::assign('gerant')->to($user);
-Sauvegarder le tout :
-
-    Bouncer::refresh()
-Aller sur le site boutique.test sur votre navigateur et se connecter avec les identifiants créés précédemment
-
 ### README
 ## Mise en Place
 # Acces au site
@@ -132,4 +57,44 @@ Et une fois dedans vous lancerez ces comandes
     artisan db:seed --class=PageSeeder
 
 # Tinker
+
+Créeation des utilisateurs
+
+    User::create(["name"=> "Admin","email"=>"admin@gmail.com","password"=>bcrypt("adminadmin")]);
+    User::create(["name"=> "Editor","email"=>"edit@gmail.com","password"=>bcrypt("editedit")]);
+
+Ensuite la création des roles et leurs abilities
+
+    Bouncer::allow('admin')->to('menu-create');
+    Bouncer::allow('admin')->to('menu-show');
+    Bouncer::allow('admin')->to('menu-edit');
+    Bouncer::allow('admin')->to('menu-delete');
+    Bouncer::allow('admin')->to('sousmenu-create');
+    Bouncer::allow('admin')->to('sousmenu-show');
+    Bouncer::allow('admin')->to('sousmenu-edit');
+    Bouncer::allow('admin')->to('sousmenu-delete');
+
+    Bouncer::allow('editor')->to('page-create');
+    Bouncer::allow('editor')->to('page-show');
+    Bouncer::allow('editor')->to('page-edit');
+    Bouncer::allow('editor')->to('page-delete');
+
+Puis assigner les roles aux utilisateurs
+
+    $user = User::find(1);
+    Bouncer::assign('admin')->to($user);
+
+    $user = User::find(2);
+    Bouncer::assign('editor')->to($user);
+
+Pour finaliser rendez-vous dans l'url "cms.test"
+Connectez-vous avec le compte que vous souaiter
+
+    admin@gmail.com
+    adminadmin
+
+ou
+
+    editor
+    editedit
 

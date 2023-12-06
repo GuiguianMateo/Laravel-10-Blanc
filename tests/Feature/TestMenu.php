@@ -7,9 +7,9 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class TestAdmin extends TestCase
+class TestMenu extends TestCase
 {
-/*     use RefreshDatabase, ActAsUser;*/
+    use RefreshDatabase;
 
     public function test_admin_can_create_menu()
     {

@@ -95,6 +95,13 @@ Connectez-vous avec le compte que vous souaiter
 
 ou
 
-    editor
+    editor@gmail.com
     editedit
+
+###Test
+
+Pour ensuite tester les tests unitaires je vous laisse utiliser cette commande
+
+    art test
+
 

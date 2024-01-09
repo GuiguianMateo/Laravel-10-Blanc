@@ -19,7 +19,16 @@
         </div>
 
         <div class="mb-3">
-            <x-input-select-page :sousmenu="$sous_menus" property="sousmenu_id" label="{{ __('Veuillez choisir un Sous-menu')}}" />
+            <label for="sousmenu_id">{{ __('Choisir un Sous-menu')}}</label>
+            <select class="form-select" name="sousmenu_id" id="sousmenu_id">
+                <option value="sousmenu">{{ __('Veuillez choisir un Sous-menu')}}</option>
+                @foreach ($sous_menus as $sousmenu)
+                    <option value="{{ $sousmenu->id }}">{{ $sousmenu->titre }}</option>
+                @endforeach
+            </select>
+            @error('sousmenu_id')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
         </div>
 
         <button type="submit" class="btn btn-primary">Créer</button>
